@@ -5,6 +5,7 @@ import Editor from "@monaco-editor/react";
 import ReactMarkdown from "react-markdown";
 import { socket } from "../socket";
 import toast from "react-hot-toast";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
 
 const LANGUAGES = {
@@ -269,7 +270,7 @@ socket.on("language-update", ({ language, code }) => {
   toast.loading("AI is thinking...", { id: "ai-action" });
 
   try {
-    const response = await fetch("http://localhost:5000/ai", {
+    const response = await fetch(`${BACKEND_URL}/ai`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -339,7 +340,7 @@ const downloadCode = () => {
   }, 100);
 
   try {
-    const response = await fetch("http://localhost:5000/run", {
+    const response = await fetch(`${BACKEND_URL}/run`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
