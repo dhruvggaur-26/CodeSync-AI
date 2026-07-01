@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
   "http://localhost:5173",
-  "https://code-sync-ai-ten.vercel.app/"
+  "https://code-sync-ai-ten.vercel.app"
 ],
     methods: ["GET", "POST"],
   })
