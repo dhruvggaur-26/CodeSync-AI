@@ -13,12 +13,14 @@ const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://code-sync-ai-ten.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-  "http://localhost:5173",
-  "https://code-sync-ai-ten.vercel.app"
-],
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
   })
 );
@@ -29,10 +31,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [
-  "http://localhost:5173",
-  "https://your-frontend-url.vercel.app"
-],
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
   },
 });

@@ -126,3 +126,9 @@ GEMINI_API_KEY=your_gemini_api_key_here
 ## Author
 
 Dhruv Gaur
+
+
+## Live Demo
+
+Frontend: https://code-sync-ai-ten.vercel.app  
+Backend: https://https://codesync-ai-49yk.onrender.com
